@@ -6,5 +6,5 @@ spec:
   accessModes: ["ReadWriteOnce"]
   capacity:
     storage: "5Gi"
-  hostpath:
+  hostPath:
     path: "/drupal-data"
