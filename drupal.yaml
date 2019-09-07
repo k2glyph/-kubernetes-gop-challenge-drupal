@@ -19,7 +19,7 @@ metadata:
     app: drupal
 spec:
   selector:
-    matchlabels:
+    matchLabels:
       app: drupal
   template:
     metadata:
