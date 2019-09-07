@@ -1,0 +1,10 @@
+apiVersion: v1
+Kind: PersitantVolume
+metadata:
+  name: drupal-pv
+spec: 
+  accessModes: ["ReadWriteOnce"]
+  capacity:
+    storage: "5Gi"
+  hostpath:
+    path: "/drupal-data"
