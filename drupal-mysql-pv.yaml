@@ -10,8 +10,7 @@ spec:
     storage: "5Gi"
   hostPath:
     path: "/drupal-mysql-data"
-  storageClassName: drupal-mysql-data
-  # claimRef:
-  #   apiVersion: v1
-  #   kind: PresistentVolumeClaim
-  #   name: pvc-test-hostpath
+  claimRef:
+    apiVersion: v1
+    kind: PresistentVolumeClaim
+    name: drupal-mysql-pvc
