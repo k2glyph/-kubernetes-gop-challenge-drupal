@@ -8,6 +8,5 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  selector: 
-    matchLabels:
-      apps: drupal-pv
+  volumeName: drupal-pv
+
