@@ -32,9 +32,10 @@ spec:
         - containerPort: 3306
           name: mysql
         volumeMounts:
-        - name: dbdata
+        - name: mysql-storage
+          subPath: dbdata
           mountPath: /var/lib/mysql
       volumes:
-      - name: dbdata
+      - name: mysql-storage
         persistentVolumeClaim:
           claimName: drupal-mysql-pvc
