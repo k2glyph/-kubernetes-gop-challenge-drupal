@@ -25,31 +25,32 @@ spec:
     metadata:
       labels:
         app: drupal
-    containers:
-    - image: drupal:8.6
-      name: drupal
-      volumeMounts:
-      - mountPath: /var/www/html/modules
-        name: vol-drupal
-        subPath: modules
-      - mountPath: /var/www/html/profiles
-        name: vol-drupal
-        subPath: profiles
-      - mountPath: /var/www/html/sites
-        name: vol-drupal
-        subPath: sites
-      - mountPath: /var/www/html/themes
-        name: vol-drupal
-        subPath: themes
-    initContainers:
-    - name: 'init-sites-volume'
-      image: drupal:8.6
-      command: [ "/bin/bash", "-c" ]
-      args: [ 'cp -r /var/www/html/sites/ /data/; chown www-data:www-data /data/ -R' ]
-      volumeMounts:
-      - name: drupal-volume
-        mountPath: /data
-    volumes:
-      - name: drupal-volume
-        persistentVolumeClaim:
-          claimName: drupal-pvc
+    spec:
+      containers:
+      - image: drupal:8.6
+        name: drupal
+        volumeMounts:
+        - mountPath: /var/www/html/modules
+          name: vol-drupal
+          subPath: modules
+        - mountPath: /var/www/html/profiles
+          name: vol-drupal
+          subPath: profiles
+        - mountPath: /var/www/html/sites
+          name: vol-drupal
+          subPath: sites
+        - mountPath: /var/www/html/themes
+          name: vol-drupal
+          subPath: themes
+      initContainers:
+      - name: 'init-sites-volume'
+        image: drupal:8.6
+        command: [ "/bin/bash", "-c" ]
+        args: [ 'cp -r /var/www/html/sites/ /data/; chown www-data:www-data /data/ -R' ]
+        volumeMounts:
+        - name: drupal-volume
+          mountPath: /data
+      volumes:
+        - name: drupal-volume
+          persistentVolumeClaim:
+            claimName: drupal-pvc
