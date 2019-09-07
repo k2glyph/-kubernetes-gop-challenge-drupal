@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: drupal-mysql-service
 spec:
   ports:
   - port: 3306
   selector:
-    app: mysql
+    app: drupal-mysql
   clusterIP: None
 ---
 apiVersion: apps/v1
