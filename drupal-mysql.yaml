@@ -25,9 +25,22 @@ spec:
       containers:
       - image: mysql:5.7
         name: mysql
-        envFrom:
-          - secretRef:
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
               name: drupal-mysql-secret
+              key: MYSQL_ROOT_PASSWORD
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: drupal-mysql-secret
+              key: MYSQL_DATABASE
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: drupal-mysql-secret
+              key: MYSQL_USER
         ports:
         - containerPort: 3306
           name: mysql
