@@ -49,7 +49,7 @@ spec:
       volumeMounts:
       - name: drupal-volume
         mountPath: /data
-  volumes:
-    - name: drupal-volume
-      persistentVolumeClaim:
-        claimName: drupal-pvc
+    volumes:
+      - name: drupal-volume
+        persistentVolumeClaim:
+          claimName: drupal-pvc
